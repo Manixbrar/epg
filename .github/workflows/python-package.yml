@@ -20,8 +20,8 @@ jobs:
         with:
           python-version: '3.7'
       - name: Install requests
-        run: pip install -r requests
+        run: pip install requests
       - name: Install xml
-        run: pip install -r xmltodict
+        run: pip install xmltodict
       - name: Run Scraper
         run: python epg.py epg.xml.gz
