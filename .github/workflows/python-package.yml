@@ -1,0 +1,27 @@
+name: Scrape
+
+on:
+  schedule:
+    - cron: "*/8 * * * *"
+  workflow_dispatch:
+
+env:
+  ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+
+jobs:
+  scrape-latest:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2.0.0
+        with:
+          python-version: '3.7'
+      - name: Install requests
+        run: pip install -r requests
+      - name: Install xmltodict
+        run: pip install -r xmltodict
+      - name: Run Scraper
+        run: python epg.py epg.xml.gz
