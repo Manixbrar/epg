@@ -66,7 +66,7 @@ def genEPG(i, c):
     # print(f"{done*100/len(result):.2f} %", end="\r")
 
 
-if _name_ == "_main_":
+
     stime = time.time()
     # prms = {"os": "android", "devicetype": "phone"}
     raw = requests.get(
