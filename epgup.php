@@ -1,5 +1,6 @@
 <?php
-$p= file_get_contents("http://localhost:8080/epg.php");
+$p= file_get_contents("http://localhost/epg.php");
+$q=  file_get_contents("http://localhost/epg.xml.gz");
 
 //Our original number.
 //$originalNumber = $p;
@@ -19,6 +20,7 @@ $compressedContent = gzencode($p , 9);
 //echo $compressedContent;
 // Save the compressed content to a .xml.gz file
 $myfile = fopen("yepg.xml.gz", "w") or die("Unable to open file!");
+fwrite($myfile, $q);
 fwrite($myfile, $compressedContent);
 fclose($myfile);
 echo "Refresh done" ;
